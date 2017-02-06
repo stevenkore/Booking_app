@@ -86,10 +86,12 @@ class Application extends SilexApplication
                 $this['db']
             ))
             ->method('GET|POST')
+            ->bind('booking_form')
         ;
 
         $this
             ->get('/bookings', new ListBookingsController($this['db'], $this['twig']))
+            ->bind('booking_list')
         ;
     }
 }
