@@ -4,6 +4,7 @@ namespace BookingApp;
 
 use BookingApp\Controllers\CreateBookingController;
 use BookingApp\Controllers\ListBookingsController;
+use BookingApp\Controllers\LoginController;
 use Silex\Application as SilexApplication;
 use Silex\Provider\DoctrineServiceProvider;
 use Silex\Provider\FormServiceProvider;
@@ -87,6 +88,16 @@ class Application extends SilexApplication
             ))
             ->method('GET|POST')
             ->bind('booking_form')
+        ;
+
+                $this
+            ->match('/bookings/create', new CreateBookingController(
+                $this['form.factory'],
+                $this['twig'],
+                $this['db']
+            ))
+            ->method('GET|POST')
+            ->bind('booking_login')
         ;
 
         $this

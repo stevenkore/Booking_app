@@ -7,4 +7,5 @@
     {% set currentUrl = global.request.getRequestUri() %}
     <a class="menu-link {{ path('booking_form') == currentUrl ? 'active' }}" href="{{ path('booking_form') }}">Book</a>
     <a class="menu-link {{ path('booking_list') == currentUrl ? 'active' }}" href="{{ path('booking_list') }}">See bookings</a>
+    <a class="menu-link {{ path('booking_login') == currentUrl ? 'active' }}" href="{{ path('booking_login') }}">Login</a>
 </div>
